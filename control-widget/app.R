@@ -1,4 +1,4 @@
-# Minimum viable example of a shiny app with a sidebar layout
+# In this example, we add a control widget to the application /sidebar-layout/app.R
 
 library(shiny)
 
@@ -7,7 +7,12 @@ ui <- fluidPage(
     # Sidebar Layout
     sidebarLayout(
         # Sidebar Layout Elements
-        sidebarPanel = sidebarPanel("Replace this placeholder text with your input controls of choice."),
+        sidebarPanel = sidebarPanel(
+            selectInput(inputId = "input_1",
+                        label = "Short description of control widget",
+                        choices = c("Iowa" = "IA", "Colorado" = "CO", "Massachusetts" = "MA")
+                        )
+        ),
         mainPanel = mainPanel(
             "Replace this placeholder text with outputs, defined in the server function below,
                                         you want displayed in the main panel."

@@ -12,7 +12,6 @@ knitr::opts_chunk$set(echo = TRUE)
 ## R Markdown
 
 
-
 ```{r force-network}
 
 
@@ -28,7 +27,11 @@ nodes <- tribble(~name, ~group, ~size,
                  "Server", 2, 1,  # 3
                  "Inputs", 3,1,  # 4
                  "Outputs",3,1,     # node 5
-                "Layout Options",3,1 #node 6
+                "Layout Options",3,1, # 6
+                "Sidebar",3,1, # 7
+                "Grid",3,1, # 8
+                "Control Widgets", 3,1, #9
+                "selectInput", 3,1
 )
 
 nodes <- as.data.frame(nodes)
@@ -40,7 +43,11 @@ links <- tribble(~source, ~target, ~value,
                 1,3,1,
                 2,4,1,
                 2,5,1,
-                2,6,1
+                2,6,1,
+                6,7,1,
+                6,8,1,
+                4,9,1,
+                9,10,1
                 )
 
 links <- as.data.frame(links)
