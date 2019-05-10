@@ -2,6 +2,8 @@
 # and simple text output.
 
 library(shiny)
+library(reactlog)
+options("shiny.reactlog" = TRUE) # enable reactlog recording
 
 # Define UI
 ui <- fluidPage(

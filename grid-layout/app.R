@@ -3,7 +3,8 @@
 library(shiny)
 
 # Define UI
-ui <- fluidPage(# Grid Layout
+ui <- fluidPage(
+  # Grid Layout
     fluidRow(wellPanel("Top row")),
     fluidRow(column(width = 4, wellPanel("Bottom row, column 1, width 4")),
              column(width = 8, wellPanel("Bottom row, column 2, width 8"))))
