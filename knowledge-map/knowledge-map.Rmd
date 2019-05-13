@@ -21,39 +21,44 @@ library(networkD3)
 
 # nodes
 nodes <- tribble(~name, ~group, ~size, ~webinar, ~time,
-                 "Shiny", 1, 40, "01",1,  # node 0
-                 "Anatomy", 2, 1, "01",1,  # node 1
-                 "UI", 3, 1, "01",5,  # node 2
-                 "Server", 2, 1, "01",10, # 3
-                 "Inputs", 3,1, "01",10, # 4
-                 "Outputs",3,1, "01",10,   # node 5
-                "Layout Options",3,1,"01",5, # 6
-                "Sidebar",3,1,"01",5, # 7
-                "Grid",3,1, "01",5, # 8
-                "Control Widgets", 3,1,"01", 10, #9
-                "selectInput", 3,1,"01",10, #10
-                "Reactivy",4,1,"01",10, #11
-                "Values",4,1,"03",10, #12
-                "Observers",4,1,"03",10, #13
-                "Expressions",4,1,"03",10, #14
+                 
+                 # How to build a shiny app from scratch
+                 "Shiny","group_1",40,"01",1,  # node 0
+                 "Anatomy","group_2",1,"01",1,  # node 1
+                 "UI","group_3",1,"01",5,  # node 2
+                 "Layout Options","group_3",1,"01",10, # 3
+                 "Sidebar","group_3",1,"01",10, # 4
+                 "Grid","group_3",1, "01",10, # 5
+                 "Control Widgets", "group_3",1,"01", 15, #6
+                 "selectInput","group_3",1,"01",15, #7
+                 "Server","group_4",1,"01",20, #8
+                 "Inputs", "group_3",1,"01",20, #9
+                 "Outputs","group_4",1,"01",20,   #10
+                 "Reactivy","group_5",1,"01",30,  #11
+                 "Tools","group_6",2,"01",45,  #12
+                 "Showcase","group_6",1,"01",50, #13
+                 "reactlog","group_6",1,"01",55, #14
+                
                 # https://shiny.rstudio.com/articles/
-                "Dashboards",3,1,"02",60, #15
-                "Tabsets",3,1,"02",60, #16
-                "Navlists",3,1,"02",60, #17
-                "Secondary Nav",3,1,"02", 60, #18
-                "Tools",15,2,"01",30, #19
-                "Showcase",5,1,"01", 30, #20
-                "reactlog",5,1,"01",30, #21
-                "shinyloadtest",5,1,"02", 60, #22
-                "custom UI", 3,1,"02",60, #23
-                "Progress Indicators",3,1,"02",60, #24
-                "GA", 5,1,"02",60, #25
-                "profvis",5,1,"02",60, #26
-                "plot caching",8,1,"02",60, #27
-                "async",8,1,"02",60, #28
-                "tuning",8,1,"02",60, #29
-                "isolate",4,1,"03",60, #30
-                "execution scheduling",4,1,"03",60
+                "Dashboards","group_3",1,"02",60, #15
+                "Tabsets","group_3",1,"02",60, #16
+                "Navlists","group_3",1,"02",60, #17
+                "Secondary Nav","group_3",1,"02",60, #18
+                "shinyloadtest","group_6",1,"02",60, #19
+                "custom UI", "group_3",1,"02",60, #20
+                "Progress Indicators","group_3",1,"02",60, #21
+                "GA", "group_6",1,"02",60, #22
+                "profvis","group_6",1,"02",60, #23
+                "plot caching","group_7",1,"02",60, #24
+                "async","group_7",1,"02",60, #25
+                "tuning","group_7",1,"02",60, #26
+                
+                # reactive programming 
+                "isolate","group_5",1,"03",60, #27
+                "execution scheduling","group_5",1,"03",60, #28
+                "Values","group_5",1,"03",60, #29
+                "Observers","group_5",1,"03",60, #30
+                "Expressions","group_5",1,"03",60, #31
                 
                 
                 
@@ -66,37 +71,37 @@ nodes <- as.data.frame(nodes)
 
 # links
 links <- tribble(~source, ~target, ~value, ~webinar, ~time,
-                0,1,1,"01",1,
-                1,2,1,"01",5,
-                1,3,1,"01",10,
-                2,4,1,"01",10,
-                2,5,1,"01",10,
-                2,6,1,"01",10,
-                6,7,1,"01",10,
-                6,8,1,"01",10,
-                4,9,1,"01",10,
-                9,10,1,"01",10,
-                0,11,1,"01",10, # Shiny > reactivity
-                11,12,1,"03",10,
-                11,13,1,"03",10,
-                11,14,1,"03",10,
-                6,15,1,"02",60,  # layout options > dashboard
-                6,16,1,"02",60, # layout options > tabsets
-                6,17,1,"02", 60,
-                6,18,1,"02",60,
-                0,19,10,"01",30, # Shiny > Tools
-                19,20,1,"01",30, # Tools > showcase
-                19,21,1,"01",30,  # Tools > reactlog
-                19,22,1,"01",60, # Tools > shinyloadtest
-                2,23,1,"02",60, # UI > custom UI
-                19,25,1,"02",60,
-                19,26,1,"02",60,
-                19,27,1,"02",60,
-                19,28,1,"02",60,
-                19,29,1,"02",60,
-                2,24,1,"02", 60, # UI > Progress Indicators
-                11,30,1,"03",60,
-                11,31,1,"03",60
+                0,1,1,"01",1,  # shiny > anatomy
+                1,2,1,"01",5, # anatomy > UI
+                1,8,1,"01",20, # anatomy > server
+                2,3,1,"01",10, # UI > layout options
+                3,4,1,"01",10, # layout options > sidebar
+                3,5,1,"01",10, # layout options > grid
+                2,6,1,"01",15, # UI > control widgets
+                6,7,1,"01",15, # control widget > selectInput
+                1,8,1,"01",20, # anatomy > Server
+                7,9,1,"01",20, # Server > Inputs
+                7,10,1,"01",20, # Sever > Outputs
+                0,11,1,"01",30, # Shiny > reactivity
+                0,12,1,"01",45, # Shiny > Tools
+                12,13,1,"01",50, # Tools > showcase
+                12,14,1,"01",55,  # Tools > reactlog
+                11,13,1,"01",55, # reactivity > reactlog
+                11,14,1,"01",55, # reactivity > showcase
+                # 6,18,1,"02",60,
+                # 0,19,1,"01",30 # Shiny > Tools
+                # 19,20,1,"01",30, # Tools > showcase
+                # 19,21,1,"01",30,  # Tools > reactlog
+                # 19,22,1,"02",60, # Tools > shinyloadtest
+                # 2,23,1,"02",60, # UI > custom UI
+                # 19,25,1,"02",60,
+                # 19,26,1,"02",60,
+                # 19,27,1,"02",60,
+                # 19,28,1,"02",60,
+                # 19,29,1,"02",60,
+                # 2,24,1,"02", 60, # UI > Progress Indicators
+                # 11,30,1,"03",60, # reactivity > isolate
+                # 11,31,1,"03",60 #reactivity > execution scheduling
                 
                 )
 
@@ -106,12 +111,15 @@ links <- as.data.frame(links)
 save.image()
 
 
-# test
+# QA
 
-# nodes <- nodes %>% filter(webinar != "03")
-# links <- links %>% filter(webinar != "03")
+nodes_filtered <- nodes
+links_filtered <- links
 
-forceNetwork(Links = links, Nodes = nodes,
+# nodes_filtered <- nodes %>% filter(webinar %in% c("01"), time <= 60)
+# links_filtered <- links %>% filter(webinar %in% c("01"), time <= 60)
+
+forceNetwork(Links = links_filtered, Nodes = nodes_filtered,
              Source = "source", Target = "target",
              Value = "value", # strength of relationship (link width)
              NodeID = "name",

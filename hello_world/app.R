@@ -7,8 +7,8 @@ library(shiny)
 # define the UI + Server
 
 ui <- fluidPage(
-      # Application title
-      titlePanel("My application title")
+        # Application title
+        titlePanel("My application title")
 )
 
 server <- function(input, output) {

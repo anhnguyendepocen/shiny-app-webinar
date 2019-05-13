@@ -17,7 +17,6 @@ library(reactlog)
 options("shiny.reactlog" = TRUE) # enable reactlog recording
 
 
-
 # Define UI for application that draws a histogram
 ui <- fluidPage(
 
@@ -31,8 +30,10 @@ ui <- fluidPage(
                what you will learn today."),
             checkboxGroupInput("checkbox_input", "Select a webinar topic:",
                                choices = c("How to build a shiny app from scratch" = "01",
-                                           "Effective reactive programming Part 1" = "03",
-                                           "shiny.rstudio.com" = "02")),
+                                           "shiny.rstudio.com" = "02",
+                                           "Effective reactive programming Part 1" = "03"
+                                           )
+                               ),
             sliderInput("slider_input", "Time Elapsed", min = 1, max = 60, step = 1, value = 1)
         ),
 
