@@ -1,0 +1,12 @@
+name: shiny_knowledge_map
+title: Shiny Knowledge Map
+username: hadrien
+account: hadrien
+server: colorado.rstudio.com
+hostUrl: https://colorado.rstudio.com/rsc/__api__
+appId: 2423
+bundleId: 25767
+url: https://colorado.rstudio.com:443/rsc/content/2423/
+when: 1557872481.06559
+asMultiple: FALSE
+asStatic: FALSE

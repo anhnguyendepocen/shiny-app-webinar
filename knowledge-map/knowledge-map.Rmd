@@ -7,6 +7,10 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+
+library(tibble)
+library(networkD3)
+library(writexl)
 ```
 
 ## R Markdown
@@ -14,10 +18,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r force-network}
 
-
-# create my own data
-library(tibble)
-library(networkD3)
+# create data
 
 # nodes
 nodes <- tribble(~name, ~group, ~size, ~webinar, ~time,
@@ -60,10 +61,6 @@ nodes <- tribble(~name, ~group, ~size, ~webinar, ~time,
                 "Observers","group_5",1,"03",60, #30
                 "Expressions","group_5",1,"03",60, #31
                 
-                
-                
-                
-                
 
 )
 
@@ -85,9 +82,7 @@ links <- tribble(~source, ~target, ~value, ~webinar, ~time,
                 0,11,1,"01",30, # Shiny > reactivity
                 0,12,1,"01",45, # Shiny > Tools
                 12,13,1,"01",50, # Tools > showcase
-                12,14,1,"01",55,  # Tools > reactlog
-                11,13,1,"01",55, # reactivity > reactlog
-                11,14,1,"01",55, # reactivity > showcase
+                12,14,1,"01",55  # Tools > reactlog
                 # 6,18,1,"02",60,
                 # 0,19,1,"01",30 # Shiny > Tools
                 # 19,20,1,"01",30, # Tools > showcase
@@ -110,9 +105,11 @@ links <- as.data.frame(links)
 # save the workspace to the file .RData in the cwd 
 save.image()
 
+# write to flat file
+write_xlsx(nodes,  "../knowledge-map-app/nodes.xlsx")
+write_xlsx(links,  "../knowledge-map-app/links.xlsx")
 
 # QA
-
 nodes_filtered <- nodes
 links_filtered <- links
 

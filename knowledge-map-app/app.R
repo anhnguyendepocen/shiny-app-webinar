@@ -11,10 +11,11 @@ library(shiny)
 library(dplyr)
 library(magrittr)
 library(networkD3)
+library(readxl)
 
 # run reactlog for reactive debugging
-library(reactlog)
-options("shiny.reactlog" = TRUE) # enable reactlog recording
+# library(reactlog)
+# options("shiny.reactlog" = FALSE) # enable reactlog recording
 
 
 # Define UI for application that draws a histogram
@@ -46,8 +47,10 @@ ui <- fluidPage(
 
 
 # load data
-load("../knowledge-map/.RData")
+# load("../knowledge-map/.RData")
 
+nodes <- read_excel("nodes.xlsx")
+links <- read_excel("links.xlsx")
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {
