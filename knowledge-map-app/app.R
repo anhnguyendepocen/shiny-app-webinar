@@ -14,8 +14,8 @@ library(networkD3)
 library(readxl)
 
 # run reactlog for reactive debugging
-# library(reactlog)
-# options("shiny.reactlog" = FALSE) # enable reactlog recording
+library(reactlog)
+options("shiny.reactlog" = TRUE) # enable reactlog recording
 
 
 # Define UI for application that draws a histogram
