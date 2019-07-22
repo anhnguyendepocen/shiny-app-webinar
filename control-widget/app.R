@@ -4,21 +4,23 @@ library(shiny)
 
 # Define UI
 ui <- fluidPage(
-    # Sidebar Layout
-    sidebarLayout(
-        # Sidebar Layout Elements
-        sidebarPanel = sidebarPanel(
-            selectInput(inputId = "input_1",
-                        label = "Short description of control widget",
-                        choices = c("Iowa" = "IA", "Colorado" = "CO", "Massachusetts" = "MA")
+        # Sidebar Layout
+        sidebarLayout(
+          # Sidebar Layout Elements (i.e. the panels)
+          sidebarPanel = sidebarPanel(
+            # Control widget
+            selectInput(
+                inputId = "input_1",
+                label = "Short description of control widget",
+                choices = c("Iowa" = "IA", "Colorado" = "CO", "Massachusetts" = "MA")
                         )
-        ),
-        mainPanel = mainPanel(
+           ),
+          mainPanel = mainPanel(
             "Replace this placeholder text with outputs, defined in the server function below,
                                         you want displayed in the main panel."
+          )
         )
-        
-    ))
+    )
 
 
 # Server function

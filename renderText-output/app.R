@@ -7,10 +7,10 @@ library(shiny)
 
 # Define UI
 ui <- fluidPage(
-    # Sidebar Layout
-    sidebarLayout(
-        # Sidebar Layout Elements (i.e. the panels)
-        sidebarPanel = sidebarPanel(
+        # Sidebar Layout
+        sidebarLayout(
+          # Sidebar Layout Elements (i.e. the panels)
+          sidebarPanel = sidebarPanel(
             #Control Widget
             selectInput(
                 inputId = "input_1",

@@ -3,7 +3,6 @@
 # load the shiny package
 library(shiny)
 
-
 # define the UI + Server
 
 ui <- fluidPage(

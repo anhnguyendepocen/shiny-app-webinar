@@ -5,8 +5,8 @@ account: hadrien
 server: colorado.rstudio.com
 hostUrl: https://colorado.rstudio.com/rsc/__api__
 appId: 2423
-bundleId: 25767
+bundleId: 26276
 url: https://colorado.rstudio.com:443/rsc/content/2423/
-when: 1557872481.06559
+when: 1563375124.7983
 asMultiple: FALSE
 asStatic: FALSE
