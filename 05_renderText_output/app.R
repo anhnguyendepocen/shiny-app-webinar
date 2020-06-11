@@ -23,7 +23,11 @@ ui <- fluidPage(
             )
         ),
         mainPanel = mainPanel(textOutput("output_1"))
-    ))
+    )
+)
+
+
+
 
 # Server function
 server <- function(input, output) {

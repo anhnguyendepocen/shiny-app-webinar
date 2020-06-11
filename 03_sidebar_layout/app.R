@@ -17,7 +17,8 @@ ui <- fluidPage(
                                         you want displayed in the main panel."
     )
     
-  ))
+  )
+)
 
 
 # Server function
