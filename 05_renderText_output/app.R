@@ -7,6 +7,9 @@ library(shiny)
 
 # Define UI
 ui <- fluidPage(
+        # App Title
+        titlePanel("Outputs"),
+    
         # Sidebar Layout
         sidebarLayout(
           # Sidebar Layout Elements (i.e. the panels)
