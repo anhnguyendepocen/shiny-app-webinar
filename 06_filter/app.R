@@ -3,55 +3,57 @@ library(shiny)
 library(insuranceData)
 library(tidyverse)
 
+# Optional: activate reactlog
+options(shiny.reactlog = FALSE)
+
 # load data
-data(dataCar)
+data(AutoClaims)
 # df <- read_csv("directory-name/file-name.csv)
 
-# ggplot
-# AutoClaims %>% 
-#   ggplot(aes(AGE, PAID, color = CLASS)) +
-#   geom_point() +
-#   ggtitle(paste("Vehicle Value vs.", "Exposure"))
 
 ui <- fluidPage(
   
   # Application title
   titlePanel("Simple Sidebar Layout Application"),
   
-  # Sidebar with a slider input for number of bins 
+  # Sidebar with a slider input 
   sidebarLayout(
     sidebarPanel(
-      selectInput("x",
-                  "X Variable:",
-                  choices = c("AGE", "PAID")),
-      selectInput("y",
-                  "X Variable:",
-                  choices = c("AGE", "PAID")),
-      selectInput("color",
-                  "Categorize by:",
-                  choices = c("CLASS", "STATE", "GENDER"))
+      sliderInput("slider",
+                  "Age:",
+                  min = 50,
+                  max = 120,
+                  value = 50
+      )
     ),
     
-    # Show a plot of the generated distribution
+    # Display plot in main panel
     mainPanel(
       plotOutput("plot")
     )
   )
 )
 
-# Define server logic required to draw a histogram
+# Define server logic to generate plot
 server <- function(input, output) {
   
   output$plot <- renderPlot({
     # generate plot based on user inputs
-    AutoClaims %>% 
-      ggplot(aes(input$x, input$y, color = input$color)) +
+    AutoClaims %>%
+      filter(AGE >= input$slider) %>%
+      ggplot(aes(AGE, PAID, color = CLASS)) +
       geom_point() +
-      ggtitle(paste(input$x, "vs.", input$y))
+      ggtitle(paste("Age", "Amount Paid"))
 
   })
 }
 
 
-
 shinyApp(ui,server)
+
+# ggplot
+# AutoClaims %>%
+#   filter(AGE > 70) %>%
+#   ggplot(aes(AGE, PAID, color = CLASS)) +
+#   geom_point() +
+#   ggtitle(paste("Age", "Amount Paid"))

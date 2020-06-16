@@ -1,0 +1,13 @@
+name: 06_filter
+title: 06_filter
+username: hadrien
+account: hadrien
+server: colorado.rstudio.com
+hostUrl: https://colorado.rstudio.com/rsc/__api__
+appId: 6706
+bundleId: 38527
+url: https://colorado.rstudio.com/rsc/content/6706/
+when: 1592341420.65344
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: app_bis.R
