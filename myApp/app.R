@@ -1,12 +1,13 @@
 library(shiny)
 
 ui <- fluidPage(
-  fluidRow(wellPanel("row1")),
-  fluidRow("row2")
+    fluidRow(wellPanel("Row 1")),
+    fluidRow(wellPanel("Row 2"))
+    
 )
 
 server <- function(input, output){
-  
+    
 }
 
 shinyApp(ui, server)

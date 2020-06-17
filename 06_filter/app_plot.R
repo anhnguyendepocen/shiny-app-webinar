@@ -7,11 +7,9 @@ library(tidyverse)
 data(AutoClaims)
 # df <- read_csv("directory-name/file-name.csv)
 
-# ggplot
-AutoClaims %>%
-  ggplot(aes(AGE, PAID, color = CLASS)) +
-  geom_point() +
-  ggtitle(paste("Age", "Amount Paid"))
+# Optional: activate reactlog
+options(shiny.reactlog = FALSE)
+
 
 ui <- fluidPage(
   
@@ -26,7 +24,7 @@ ui <- fluidPage(
                   choices = names(AutoClaims)
       ),
       selectInput("ycol",
-                  "X Variable:",
+                  "Y Variable:",
                   choices = names(AutoClaims)
       ),
       selectInput("color",
@@ -49,7 +47,7 @@ server <- function(input, output) {
   output$plot <- renderPlot({
     # generate plot based on user inputs
     AutoClaims %>% 
-      ggplot(aes(input$xcol, input$ycol, color = input$color)) +
+      ggplot(aes_string(input$xcol, input$ycol, color = input$color)) +
       geom_point() +
       ggtitle(paste(input$xcol, "vs.", input$ycol))
 
@@ -59,5 +57,11 @@ server <- function(input, output) {
 
 
 shinyApp(ui,server)
+
+# # ggplot
+# AutoClaims %>%
+#   ggplot(aes(AGE, PAID, color = CLASS)) +
+#   geom_point() +
+#   ggtitle(paste("Age", "Amount Paid"))
 
 
