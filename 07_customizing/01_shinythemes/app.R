@@ -13,7 +13,7 @@ library(shiny)
 library(shinythemes)
 
 # Define UI for application that draws a histogram
-ui <- fluidPage(theme = shinytheme("cerulean"),
+ui <- fluidPage(theme = shinytheme("superhero"),
 
     # Application title
     titlePanel("Old Faithful Geyser Data"),

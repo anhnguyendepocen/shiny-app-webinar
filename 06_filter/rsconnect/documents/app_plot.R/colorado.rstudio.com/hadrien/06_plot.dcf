@@ -1,0 +1,13 @@
+name: 06_plot
+title: 06_plot
+username: hadrien
+account: hadrien
+server: colorado.rstudio.com
+hostUrl: https://colorado.rstudio.com/rsc/__api__
+appId: 6714
+bundleId: 38550
+url: https://colorado.rstudio.com/rsc/content/6714/
+when: 1592404502.4254
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: app_filter.R|MVRE.R

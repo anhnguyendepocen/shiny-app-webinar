@@ -16,6 +16,7 @@ ui <- fluidPage(
                 inputId = "input_1",
                 label = "Short description of control widget",
                 choices = c("Iowa" = "IA", "Colorado" = "CO", "Massachusetts" = "MA")
+       
             )            
            ),
           mainPanel = mainPanel(

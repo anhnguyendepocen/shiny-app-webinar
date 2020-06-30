@@ -8,7 +8,7 @@ data(AutoClaims)
 # df <- read_csv("directory-name/file-name.csv)
 
 # Optional: activate reactlog
-options(shiny.reactlog = FALSE)
+options(shiny.reactlog = TRUE)
 
 
 ui <- fluidPage(
